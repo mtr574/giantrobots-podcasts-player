@@ -4,7 +4,7 @@ var server = http.createServer(function(req, res) {
     res.writeHead(200, {
         'content-type': 'text/plain'
     });
-    res.write('hello from nodejs!');
+    res.write('hello from nodejs!\n');
     res.end('good-bye!');
 });
 
