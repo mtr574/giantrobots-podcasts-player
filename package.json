@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.2.5",
-  "description": "A sample Node.js app using Express 4",
+  "name": "Giant Robots podcasts player",
+  "version": "0.1.0",
+  "description": "Giant Robots podcasts player",
   "engines": {
     "node": "5.9.1"
   },
@@ -11,16 +11,19 @@
   },
   "dependencies": {
     "ejs": "2.4.1",
-    "express": "4.13.3"
+    "express": "4.13.3",
+    "request": "latest",
+    "cheerio": "latest"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/natekonimbo/giantrobots-podcasts-player"
   },
   "keywords": [
     "node",
-    "heroku",
-    "express"
+    "express",
+    "request",
+    "cheerio"
   ],
   "license": "MIT"
 }
