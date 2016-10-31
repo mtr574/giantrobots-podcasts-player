@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <% include ../partials/header.ejs %>
+    <% include ../partials/header.ejs %>
 </head>
 
 <body>
-
-  <% include ../partials/nav.ejs %>
-
-<div class="jumbotron text-center">
-  <div class="container">
-    <h3>this is http://giantrobots.fm/ RSS scrapper</h3>
-    <h4>will present list of podcast shows here</h4>
-  </div>
-</div>
-<div class="container">
-  
-  <div class="row">
-    <div class="col-md-12">
-      <data></data>
-      <button type="button" class="btn btn-default" name="button">Scrap</button>
-    </div>
-  </div> <!-- row -->
-   
-</div>
-
-
+    <% include ../partials/nav.ejs %>
+        <div class="jumbotron text-center">
+            <div class="container">
+                <h3>this is http://giantrobots.fm/ RSS scrapper</h3>
+                <h4>will present list of podcast shows here</h4>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <data>
+                      <ul>    
+                      <% for(var i=0; i < data.length; i++) { %>
+                        <li><%= data[i] %></li>
+                      <% } %>
+                      </ul>
+                    </data>
+                    <a href="/feedme"><button type="button" class="btn btn-default" name="button">Feedme</button></a>
+                </div>
+            </div>
+        </div>
 </body>
+
 </html>

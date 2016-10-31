@@ -1,5 +1,5 @@
 {
-  "name": "Giant Robots podcasts player",
+  "name": "giant-robots-podcasts-player",
   "version": "0.1.0",
   "description": "Giant Robots podcasts player",
   "engines": {
@@ -13,7 +13,7 @@
     "ejs": "2.4.1",
     "express": "4.13.3",
     "request": "latest",
-    "cheerio": "latest"
+    "feedparser": "latest"
   },
   "repository": {
     "type": "git",
