@@ -13,7 +13,8 @@
     "ejs": "2.4.1",
     "express": "4.13.3",
     "request": "latest",
-    "feedparser": "latest"
+    "feedparser": "latest",
+    "angular": "latest"
   },
   "repository": {
     "type": "git",
