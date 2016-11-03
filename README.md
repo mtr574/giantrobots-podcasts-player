@@ -5,6 +5,7 @@ Link to the website [Giant Robots Smashing Into Other Giant Robots](http://giant
 Application stack:
 
 1. NodeJS
+2. [RSS/XML Parser](https://github.com/danmactough/node-feedparser)
 
 ## Running Locally
 
