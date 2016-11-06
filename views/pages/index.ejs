@@ -17,13 +17,15 @@
             <div class="row">
                 <div class="col-md-12">
                     <data>
-                      <ul>    
-                      <% for(var i=0; i < data.length; i++) { %>
-                        <li><%= data[i] %></li>
-                      <% } %>
-                      </ul>
+                      <script>
+                        data = "<%= data %>";
+                        data_as_json = data.replace(/&#(\d+);/g, function(match, match2) {
+                            return String.fromCharCode(+match2);
+                        });
+                        console.log(data_as_json);
+                      </script>
+                        <%= data %>
                     </data>
-                    <a href="/feedme"><button type="button" class="btn btn-default" name="button">Feedme</button></a>
                 </div>
             </div>
         </div>

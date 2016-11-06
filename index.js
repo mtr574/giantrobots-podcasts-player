@@ -1,6 +1,9 @@
 var express = require('express');
 var app = express();
 
+var https = require('https');
+var parser = require('xml2json');
+
 app.set('port', (process.env.PORT || 5000));
 
 // Serve static files
@@ -24,7 +27,7 @@ app.get('/feedme', function(request, response) {
 
     var request = require('request'),
         FeedParser = require('feedparser'),
-        RSS_URL = 'https://simplecast.com/podcasts/271/rss';
+        RSS_URL = 'https://simplecast.com/podcasts/271/rss.xml';
 
     var req = request(RSS_URL),
         feedparser = new FeedParser();
@@ -72,6 +75,37 @@ app.get('/feedme', function(request, response) {
     }
 });
 
+app.get('/api', function(req, res) {
+    var RSS_HOST = 'simplecast.com',
+        RSS_PATH = '/podcasts/271/rss';
+
+    res.writeHead(200, {
+        "Content-Type": "application/rss+xml"
+    });
+
+    str = '';
+    var req = https.request({
+        host: RSS_HOST,
+        post: 443,
+        path: RSS_PATH,
+        method: 'GET'
+    }, function(res) {
+        res.on('data', function(chnk) {
+            str += chnk;
+        });
+    });
+    req.end();
+
+    // Error handler
+    req.on('error', function(e) {
+        console.error(e);
+    });
+    xml = str;
+
+    var json = parser.toJson(xml);
+    res.end(json);
+});
+
 app.listen(app.get('port'), function() {
-    console.log('Node app is running on port', app.get('port'));
+    console.log('[Running] port: ', app.get('port'));
 });
