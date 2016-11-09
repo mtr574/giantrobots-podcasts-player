@@ -20,8 +20,10 @@ npm start
 
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-## Documentation
+## Resources
 
 Tutorial that I used for this application:
 
 - [Scraping the Web With Node.js](https://scotch.io/tutorials/scraping-the-web-with-node-js)
+
+- [Thoughtbot RSS feeds](http://rss.thoughtbot.com/)
