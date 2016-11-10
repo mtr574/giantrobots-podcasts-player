@@ -61,8 +61,18 @@ footer ul li {
     display: inline-block;
 }
 
+/* Mobile : header */
 @media (max-width: 767px) {
-    /* Mobile : header */
+    .container {
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+
+    .container-fluid {
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+
     .jumbotron {
         padding: 10px;
     }
@@ -73,6 +83,7 @@ footer ul li {
         display: inline-block;
         float: left;
     }
+
     audio {
         width: 100%;
     }
