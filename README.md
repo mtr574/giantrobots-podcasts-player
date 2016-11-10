@@ -6,7 +6,7 @@ Application stack:
 
 1. NodeJS
 2. [RSS/XML Parser](https://github.com/danmactough/node-feedparser)
-3. [xml2json](https://www.npmjs.com/package/xml2json)
+3. [node-sass-middleware](https://github.com/sass/node-sass-middleware)
 4. [https-request-in-nodejs](http://stackoverflow.com/questions/12851858/https-request-in-nodejs)
 
 ## Running Locally
