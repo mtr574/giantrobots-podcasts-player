@@ -1,26 +1,26 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-body {
+@import url('https://fonts.googleapis.com/css?family=Nunito'); body {
     background: #e2e1e0;
     font-family: 'Nunito', sans-serif;
 }
 
 audio {
-    width: 160px;
+    width: 100%;
     margin: 0 auto;
     display: table;
 }
 
 article {
-  margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 article div.card {
     background: #fff;
     padding: 15px 12px;
     border-radius: 2px;
-    min-height: 150px;
+    height: 150px;
     width: 100%;
     cursor: pointer;
+    overflow: hidden;
 }
 
 article div.card h4 {
@@ -28,6 +28,8 @@ article div.card h4 {
     padding: 0 15px;
     border-left: 3px solid #d07;
     margin-left: 10px;
+    height: 58px;
+    overflow: hidden;
 }
 
 .shad {
@@ -51,10 +53,27 @@ article div.card h4 {
 }
 
 footer ul {
-  float:right;
+    float: right;
     list-style-type: none;
 }
 
 footer ul li {
     display: inline-block;
+}
+
+@media (max-width: 767px) {
+    /* Mobile : header */
+    .jumbotron {
+        padding: 10px;
+    }
+
+    .logo-wrapper {
+        width: 55px;
+        height: 55px;
+        display: inline-block;
+        float: left;
+    }
+    audio {
+        width: 100%;
+    }
 }

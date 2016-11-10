@@ -2,6 +2,7 @@ var
     express = require('express'),
     https = require('https'),
     sassMiddleware = require('node-sass-middleware'),
+    NodeCache = require("node-cache"),
     app = express();
 
 app.set('port', (process.env.PORT || 5000));
@@ -56,11 +57,19 @@ app.get('/', function(request, response) {
     feedparser.on('readable', function() {
         var post;
         while (post = this.read()) {
-            if (index == 1) break;
+            // if (index == 5) break;
             data.push(post);
+            cache(post);
             index++;
         }
     });
+
+    // cache function
+    function cache(object) {
+        const myCache = new NodeCache();
+        var key = "hmm";
+        myCache.set(key, object);
+    }
 
     function done(err) {
         if (err) {

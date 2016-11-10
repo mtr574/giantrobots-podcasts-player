@@ -7,25 +7,29 @@
 
 <body>
     <% include ../partials/nav.ejs %>
-        <div class="jumbotron text-center">
-            <div class="container">
-                <div class="logo-wrapper">
-                    <img class="img-responsive" alt="Giant Robots Smashing Into Other Giant Robots" src="https://media.simplecast.com/podcast/image/271/small_1437963534-artwork.jpg">
-                </div>
-                <h3>Giant Robots Player</h3>
-            </div>
-        </div>
+        <header>
+          <div class="jumbotron text-center">
+              <div class="container">
+                  <div class="logo-wrapper">
+                      <img class="img-responsive" alt="Giant Robots Smashing Into Other Giant Robots" src="https://media.simplecast.com/podcast/image/271/small_1437963534-artwork.jpg">
+                  </div>
+                  <h3>Giant Robots Player</h3>
+              </div>
+          </div>
+        </header>
         <div class="container-fluid">
             <div class="row">
-                <article class="col-md-2">
+              <% for(var index = 0; index < data.length; index++) { %>
+                <article class="col-md-2 col-sm-4 col-xs-12">
                     <div class="card shad">
-                        <h4><%= data[0].title %></h4>
-                        <audio controls>
-                        <source src="<%= data[0].enclosures["0"].url %>" type="audio/mpeg">
+                        <h4><%= data[index].title %></h4>
+                        <audio preload="none" controls="true">
+                        <source src="<%= data[index].enclosures["0"].url %>" type="audio/mpeg">
                         Not supported.
                       </audio>
                     </div>
                 </article>
+              <% } %>
             </div>
         </div>
         <footer>

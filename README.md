@@ -1,13 +1,14 @@
-#  Giant Robots podcasts player
+# Giant Robots podcasts player
 
 Link to the website [Giant Robots Smashing Into Other Giant Robots](http://giantrobots.fm/).
 
-Application stack:
+Application stack & dependencies:
 
 1. NodeJS
 2. [RSS/XML Parser](https://github.com/danmactough/node-feedparser)
 3. [node-sass-middleware](https://github.com/sass/node-sass-middleware)
-4. [https-request-in-nodejs](http://stackoverflow.com/questions/12851858/https-request-in-nodejs)
+4. [node-cache](https://www.npmjs.com/package/node-cache)
+5. [https-request-in-nodejs](http://stackoverflow.com/questions/12851858/https-request-in-nodejs)
 
 ## Running Locally
 

@@ -12,9 +12,10 @@
   "dependencies": {
     "ejs": "2.4.1",
     "express": "4.13.3",
-    "request": "latest",
     "feedparser": "latest",
-    "node-sass-middleware": "latest"
+    "node-cache": "^4.1.0",
+    "node-sass-middleware": "latest",
+    "request": "latest"
   },
   "repository": {
     "type": "git",
