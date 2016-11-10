@@ -9,26 +9,46 @@
     <% include ../partials/nav.ejs %>
         <div class="jumbotron text-center">
             <div class="container">
-                <h3>this is http://giantrobots.fm/ RSS scrapper</h3>
-                <h4>will present list of podcast shows here</h4>
+                <div class="logo-wrapper">
+                    <img class="img-responsive" alt="Giant Robots Smashing Into Other Giant Robots" src="https://media.simplecast.com/podcast/image/271/small_1437963534-artwork.jpg">
+                </div>
+                <h3>Giant Robots Player</h3>
             </div>
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
-                    <data>
-                      <script>
-                        data = "<%= data %>";
-                        data_as_json = data.replace(/&#(\d+);/g, function(match, match2) {
-                            return String.fromCharCode(+match2);
-                        });
-                        console.log(data_as_json);
-                      </script>
-                        <%= data %>
-                    </data>
+                <article class="col-md-2">
+                    <div class="card shad">
+                        <h4><%= data[0].title %></h4>
+                        <audio controls>
+                        <source src="<%= data[0].enclosures["0"].url %>" type="audio/mpeg">
+                        Not supported.
+                      </audio>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr />
+                        <div class="col-md-6">
+                            <p>
+                                Thanks to <a href="http://giantrobots.fm/">http://giantrobots.fm/</a> for an awesome podcast!
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li><a href="/info">Info</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </footer>
+        <script type="text/javascript">
+        </script>
 </body>
 
 </html>

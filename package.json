@@ -14,8 +14,7 @@
     "express": "4.13.3",
     "request": "latest",
     "feedparser": "latest",
-    "angular": "latest",
-    "xml2json": "latest"
+    "node-sass-middleware": "latest"
   },
   "repository": {
     "type": "git",

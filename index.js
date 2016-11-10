@@ -1,29 +1,28 @@
-var express = require('express');
-var app = express();
-
-var https = require('https');
-var parser = require('xml2json');
+var
+    express = require('express'),
+    https = require('https'),
+    sassMiddleware = require('node-sass-middleware'),
+    app = express();
 
 app.set('port', (process.env.PORT || 5000));
-
-// Serve static files
-app.use(express.static(__dirname + '/public'));
 
 // Serve views (templates)
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+// Use sass middleware
+app.use(
+    sassMiddleware({
+        src: __dirname + '/public/stylesheets/sass',
+        dest: __dirname + '/public/stylesheets/css',
+        debug: false,
+    })
+);
+
+// Serve static files
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', function(request, response) {
-
-    var ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
-    console.log('Client IP:', ip);
-
-    response.render('pages/index', {
-        data: 'this data is rendered from server'
-    });
-});
-
-app.get('/feedme', function(request, response) {
 
     var request = require('request'),
         FeedParser = require('feedparser'),
@@ -55,12 +54,10 @@ app.get('/feedme', function(request, response) {
 
     // parsing feed data
     feedparser.on('readable', function() {
-        // This is where the action is!
         var post;
         while (post = this.read()) {
-            if (index == 1)
-                break;
-            data.push(JSON.stringify(post));
+            if (index == 1) break;
+            data.push(post);
             index++;
         }
     });
@@ -75,35 +72,11 @@ app.get('/feedme', function(request, response) {
     }
 });
 
-app.get('/api', function(req, res) {
-    var RSS_HOST = 'simplecast.com',
-        RSS_PATH = '/podcasts/271/rss';
-
-    res.writeHead(200, {
-        "Content-Type": "application/rss+xml"
+app.get('/info', function(request, response) {
+    var ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
+    response.render('pages/info', {
+        data: ip
     });
-
-    str = '';
-    var req = https.request({
-        host: RSS_HOST,
-        post: 443,
-        path: RSS_PATH,
-        method: 'GET'
-    }, function(res) {
-        res.on('data', function(chnk) {
-            str += chnk;
-        });
-    });
-    req.end();
-
-    // Error handler
-    req.on('error', function(e) {
-        console.error(e);
-    });
-    xml = str;
-
-    var json = parser.toJson(xml);
-    res.end(json);
 });
 
 app.listen(app.get('port'), function() {
