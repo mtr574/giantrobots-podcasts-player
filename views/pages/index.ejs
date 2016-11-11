@@ -8,12 +8,18 @@
 <body>
     <% include ../partials/nav.ejs %>
         <header>
-            <div class="jumbotron text-center" onclick="randomArticle();">
+            <div class="jumbotron text-center">
                 <div class="container">
                     <div class="logo-wrapper">
                         <img class="img-responsive" alt="Giant Robots Smashing Into Other Giant Robots" src="https://media.simplecast.com/podcast/image/271/small_1437963534-artwork.jpg">
                     </div>
                     <h3>Giant Robots Player</h3>
+                    <nav>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-nav" aria-expanded="false">
+                          <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                          <span class="sr-only">Toggle navigation</span>
+                        </button>
+                    </nav>
                 </div>
             </div>
         </header>
@@ -21,8 +27,11 @@
             <div class="row">
                 <% for(var index = 0; index < data.length; index++) { %>
                     <article class="col-md-2 col-sm-4 col-xs-12">
+                      <button type="button" class="article-bookmark" aria-label="Bookmark This">
+                        <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+                      </button>
                         <div class="card shad">
-                            <h4><%= data[index].title %></h4>
+                            <a href="<%= data[index].link %>"><h4><%= data[index].title %></h4></a>
                             <audio preload="none" controls="true">
                         <source src="<%= data[index].enclosures["0"].url %>" type="audio/mpeg">
                         Not supported.
@@ -61,6 +70,15 @@
                 }
                 articles[random_article_index].style.display = "";
             }
+
+            (function buttonListener() {
+                btns = document.querySelectorAll('button.menu');
+                for (var i = 0; i < btns.length; i++) {
+                    btns[i].addEventListener('click', function() {
+                        document.querySelectorAll('.navbar-toggle')[0].click();
+                    })
+                }
+            })();
         </script>
 </body>
 

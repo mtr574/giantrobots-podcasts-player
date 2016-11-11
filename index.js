@@ -57,7 +57,7 @@ app.get('/', function(request, response) {
     feedparser.on('readable', function() {
         var post;
         while (post = this.read()) {
-            // if (index == 5) break;
+            if (index == 1) break;
             data.push(post);
             cache(post);
             index++;
