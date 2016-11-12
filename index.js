@@ -9,7 +9,7 @@ const NodeCache = require("node-cache"),
     CACHE_KEY = "gpd_c";
 
 var
-    NoCache = false;
+    NoCache = true;
 
 app.set('port', (process.env.PORT || 5000));
 
