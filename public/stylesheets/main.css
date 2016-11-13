@@ -138,6 +138,7 @@ footer ul li {
 /* Mobile : header */
 
 @media (max-width: 767px) {
+*:focus {border:0;outline:0;}
     header nav, header .header-menu {
         display: block;
     }
