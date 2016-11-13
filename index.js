@@ -95,7 +95,7 @@ app.get('/', function(request, response) {
     feedparser.on('readable', function() {
         var post, obj = {};
         while (post = this.read()) {
-            //if (index == 1) break;
+            if (index == 18) break;
             obj.title = post.title;
             obj.link = post.link;
             obj.url = post.enclosures["0"].url
