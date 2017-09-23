@@ -1,6 +1,6 @@
 # Giant Robots podcasts player
 
-Link to the website [Giant Robots Smashing Into Other Giant Robots](http://giantrobots.fm/).
+[Giant Robots Smashing Into Other Giant Robots](http://giantrobots.fm/) is a weekly podcast discussing the design, development, and business of great software.
 
 Application stack & dependencies:
 
@@ -12,19 +12,14 @@ Application stack & dependencies:
 
 ## Running Locally
 
-Make sure you have [Node.js](http://nodejs.org/) installed.
-
 ```sh
 npm install
 npm start
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Check [localhost:5000](http://localhost:5000/).
 
 ## Resources
 
-Tutorial that I used for this application:
-
 - [Scraping the Web With Node.js](https://scotch.io/tutorials/scraping-the-web-with-node-js)
-
 - [Thoughtbot RSS feeds](http://rss.thoughtbot.com/)
